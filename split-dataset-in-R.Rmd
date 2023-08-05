@@ -17,14 +17,15 @@ data[1:5]
 library(dplyr)
 library(rsample)
 
+#rsample helps split the housing data using training and testing fxns
 housing <- data[1:5]
-housing_split <- initial_split(housing) #rsample helps split the housing data using 
-training_data <- training(housing_split) # training and testing fxns
+housing_split <- initial_split(housing) 
+training_data <- training(housing_split) 
 testing_data  <- testing(housing_split)
 
 ```
 
-Now loading the recipes package, we can do some fmefp
+Now loading the recipes package, we can do some FMEFP
 
 Feature Engineering
 Missing values
@@ -38,7 +39,7 @@ library(tidyr)
 library(recipes)
 
 training_data %>%  #data to pipe into the recipe
-  recipe() %>%  #starts with recipe
+  recipe() %>%  #start with recipe
    step_normalize(everything()) %>%  #normalize then preprocess
   prep() -> recipe #end with prep
 
