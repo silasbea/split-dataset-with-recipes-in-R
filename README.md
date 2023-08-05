@@ -2,6 +2,8 @@
 
 R uses the rsample package in machine learning to split data into training and testing sets and the recipes package to do some feature engineering, handle missing values, vectorization, feature scaling and the preprocessing the data.
 
+In this R Markdown, our Housing dataset has been split into training and testing datasets using rsample. If you don't already have these packages installed, you can of course install with install.packages('rsample') and install.packages('recipes')
+
 ```{r}
 library(dplyr)
 library(tidyr)
