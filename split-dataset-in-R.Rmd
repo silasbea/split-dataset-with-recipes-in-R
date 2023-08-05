@@ -1,0 +1,56 @@
+---
+title: "split-dataset-in-R"
+author: "Silas Bamidele"
+date: "2023-08-05"
+output: html_document
+---
+```{r}
+library(readr)
+
+data <- read_csv('Housing.csv')
+head(data)
+data[1:5]
+
+```
+
+```{r}
+library(dplyr)
+library(rsample)
+
+housing <- data[1:5]
+housing_split <- initial_split(housing) #rsample helps split the housing data using 
+training_data <- training(housing_split) # training and testing fxns
+testing_data  <- testing(housing_split)
+
+```
+
+Now loading the recipes package, we can do some fmefp
+
+Feature Engineering
+Missing values
+Encoding categorical variables -- Vectorization
+Feature scaling
+Preprocessing
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(recipes)
+
+training_data %>%  #data to pipe into the recipe
+  recipe() %>%  #starts with recipe
+   step_normalize(everything()) %>%  #normalize then preprocess
+  prep() -> recipe #end with prep
+
+  recipe
+```
+
+```{r}
+library(dplyr)
+library(recipes)
+
+juice(recipe) -> juiced
+juiced
+
+```
+
